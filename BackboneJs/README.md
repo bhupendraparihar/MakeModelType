@@ -52,3 +52,20 @@ car.on("error", function(model, error) {
   console.log(error);
 });
 ```
+Creating View for Car
+```javascript
+var CarView = Backbone.View.extend({
+  tagName: 'tr',
+  
+  initialize: function() {
+    this.render();
+  },
+  
+  render: function() {
+    this.$el.html('<td>' + this.model.get('make') + '</td><td>' + this.model.get('model') + '</td><td>' + this.model.get('type') + '</td>');
+  }
+});
+
+var car = new Car('Audi','A3','new');
+var carView = new CarView({ model: car });
+```
